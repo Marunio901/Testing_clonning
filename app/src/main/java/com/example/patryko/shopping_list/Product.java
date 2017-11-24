@@ -55,8 +55,6 @@ public class Product {
         isChecked = checked;
     }
 
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

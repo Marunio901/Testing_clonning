@@ -4,10 +4,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -66,6 +62,4 @@ public class DatabaseRepository {
         insertValues.put("Selected", product.isChecked());
         database.update("ProductItems", insertValues, "ProductName = ?", new String[]{productName});
     }
-
-
 }

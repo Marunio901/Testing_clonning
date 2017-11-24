@@ -38,7 +38,6 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-
         preferences = getSharedPreferences(PREFERENCES_NAME1, Activity.MODE_PRIVATE);
         preferences1 = getSharedPreferences(PREFERENCES_NAME2, Activity.MODE_PRIVATE);
         etToSave = (EditText) findViewById(R.id.editText4);

@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-
     public void settOnClick(View v){
 
         przyciskSettings = (Button)findViewById(R.id.button2);
