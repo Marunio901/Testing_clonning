@@ -37,9 +37,9 @@ public class ListActivity extends AppCompatActivity {
         simpleList = (ListView)findViewById(R.id.list_view);
 
 
-        productsList.add(new Product("Milk","1"));
-        productsList.add(new Product("Banana","2"));
-        productsList.add(new Product("Water","3"));
+        productsList.add(new Product("Milk",1, 2.90));
+        productsList.add(new Product("Banana",2, 3.20));
+        productsList.add(new Product("Water",3, 1.00));
 
         //listView=(ListView)findViewById(R.id.list_view);
 

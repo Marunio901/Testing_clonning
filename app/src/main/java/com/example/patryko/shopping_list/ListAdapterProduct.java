@@ -43,10 +43,14 @@ public class ListAdapterProduct extends ArrayAdapter<Product> {
         v = inflater.inflate(R.layout.rowlayout, null);
         TextView textView = (TextView) v.findViewById(R.id.tv_name);
         TextView textView2 = (TextView) v.findViewById(R.id.tv_quant);
+        TextView textView3 = (TextView) v.findViewById(R.id.tv_price);
 
 
         textView.setText(productsList.get(position).getName());
-        textView2.setText(productsList.get(position).getQuantity());
+        textView2.setText(String.valueOf(productsList.get(position).getQuantity()));
+        textView3.setText(String.valueOf(productsList.get(position).getPrice()));
+
+
 
 
         return v;

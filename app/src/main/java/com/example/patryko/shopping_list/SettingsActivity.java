@@ -19,11 +19,11 @@ import android.widget.Toast;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    private static final String PREFERENCES_NAME1 = "myPreferences" ;
-    private static final String PREFERENCES_NAME2 = "myPreferences2" ;
+    private static final String PREFERENCES_NAME1 = "myPreferences";
+    private static final String PREFERENCES_NAME2 = "myPreferences2";
 
-    private static final String PREFERENCES_TEXT_FIELD = "tekstField" ;
-    private static final String PREFERENCES_TEXT_FIELD2 = "tekstField2" ;
+    private static final String PREFERENCES_TEXT_FIELD = "tekstField";
+    private static final String PREFERENCES_TEXT_FIELD2 = "tekstField2";
     public Button przyciskMenu, przyciskZatwierdz;
     public EditText etToSave;
     int colorBG;
@@ -41,21 +41,18 @@ public class SettingsActivity extends AppCompatActivity {
 
         preferences = getSharedPreferences(PREFERENCES_NAME1, Activity.MODE_PRIVATE);
         preferences1 = getSharedPreferences(PREFERENCES_NAME2, Activity.MODE_PRIVATE);
-        etToSave = (EditText)findViewById(R.id.editText4);
-        tv1 = (TextView)findViewById(R.id.textView);
-        tv2 = (TextView)findViewById(R.id.textView2);
+        etToSave = (EditText) findViewById(R.id.editText4);
+        tv1 = (TextView) findViewById(R.id.textView);
+        tv2 = (TextView) findViewById(R.id.textView2);
 
-        przyciskMenu = (Button)findViewById(R.id.button4);
-        przyciskZatwierdz = (Button)findViewById(R.id.button3);
-        rbB = (RadioButton)findViewById(R.id.rbB);
-        rbG = (RadioButton)findViewById(R.id.rbG);
-        rbR = (RadioButton)findViewById(R.id.rbR);
-
-
-        rl = (RelativeLayout)findViewById(R.id.RL1);
+        przyciskMenu = (Button) findViewById(R.id.button4);
+        przyciskZatwierdz = (Button) findViewById(R.id.button3);
+        rbB = (RadioButton) findViewById(R.id.rbB);
+        rbG = (RadioButton) findViewById(R.id.rbG);
+        rbR = (RadioButton) findViewById(R.id.rbR);
 
 
-
+        rl = (RelativeLayout) findViewById(R.id.RL1);
 
 
         zatwierdzOnClick();
@@ -63,18 +60,17 @@ public class SettingsActivity extends AppCompatActivity {
         restoreData();
 
         etToSave.setTextSize(Float.parseFloat(etToSave.getText().toString()));
-        //tv1.setTextSize(10);
 
 
-    rbB.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
+        rbB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-            rl.setBackgroundColor(Color.BLUE);
-            colorBG = Color.BLUE;
+                rl.setBackgroundColor(Color.BLUE);
+                colorBG = Color.BLUE;
 
-        }
-    });
+            }
+        });
 
 
         rbG.setOnClickListener(new View.OnClickListener() {
@@ -100,11 +96,6 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
 
-
-
-
-
-
     private void zatwierdzOnClick() {
 
         przyciskZatwierdz.setOnClickListener(new View.OnClickListener() {
@@ -117,37 +108,26 @@ public class SettingsActivity extends AppCompatActivity {
                 showToast("Zapisano ustawienia");
 
 
-//             Intent ekranMain = new Intent(getApplicationContext(), MainActivity.class);
-//             startActivity(ekranMain);
-
             }
         });
     }
 
 
-
-    private void menuOnClick(){
+    private void menuOnClick() {
 
         przyciskMenu.setOnClickListener(new View.OnClickListener() {
             @Override
 
             public void onClick(View v) {
 
-             Intent ekranMain = new Intent(getApplicationContext(), MainActivity.class);
-             startActivity(ekranMain);
+                Intent ekranMain = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(ekranMain);
 
             }
         });
-
-
     }
 
-    private void showToast(String msg){
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-    }
-
-
-    private void saveData(){
+    private void saveData() {
         SharedPreferences.Editor preferencesEditor = preferences.edit();
         SharedPreferences.Editor preferencesEditor2 = preferences1.edit();
         String editTextData = etToSave.getText().toString();
@@ -160,11 +140,16 @@ public class SettingsActivity extends AppCompatActivity {
 
     }
 
-    private void restoreData(){
+    private void restoreData() {
         String textFromPreferences = preferences.getString(PREFERENCES_TEXT_FIELD, "");
         int kolorFromPreferences = preferences1.getInt(PREFERENCES_TEXT_FIELD2, -1);
         etToSave.setText(textFromPreferences);
         rl.setBackgroundColor(kolorFromPreferences);
     }
+
+    private void showToast(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
 
 }

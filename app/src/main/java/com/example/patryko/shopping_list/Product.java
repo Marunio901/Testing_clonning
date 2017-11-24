@@ -7,17 +7,17 @@ package com.example.patryko.shopping_list;
 public class Product {
 
     String name;
-    String quantity;
-   // private double price;
+    int quantity;
+    double price;
 
     public Product() {
     }
 
-    //public Product(String name, int quantity, double price) {
-    public Product(String name, String quantity) {
+    public Product(String name, int quantity, double price) {
+
         this.name = name;
         this.quantity = quantity;
-       // this.price = price;
+       this.price = price;
     }
 
 
@@ -25,23 +25,23 @@ public class Product {
         return name;
     }
 
-    public String getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-//    public double getPrice() {
-//        return price;
-//    }
+    public double getPrice() {
+        return price;
+    }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
-//    public void setPrice(double price) {
-//        this.price = price;
-//    }
+    public void setPrice(double price) {
+        this.price = price;
+    }
 }
