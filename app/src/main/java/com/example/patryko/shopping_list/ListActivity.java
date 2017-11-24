@@ -1,27 +1,20 @@
 package com.example.patryko.shopping_list;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.GridView;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
-
 public class ListActivity extends AppCompatActivity {
 
     ListView simpleList;
@@ -29,6 +22,8 @@ public class ListActivity extends AppCompatActivity {
     Button bAdd;
     EditText et_name, et_quant, et_price;
     boolean isProductChecked;
+
+    ListAdapterProduct adapter;
 
     private DatabaseRepository dbProducts;
 
@@ -48,6 +43,8 @@ public class ListActivity extends AppCompatActivity {
         dbProducts = new DatabaseRepository(getBaseContext());
 
 
+
+
         //dbProducts.RemoveProduct(dbProducts.GetAllItems());
 
 
@@ -58,8 +55,12 @@ public class ListActivity extends AppCompatActivity {
 
 
 
-        final ListAdapterProduct adapter = new ListAdapterProduct(this, R.layout.rowlayout, dbProducts.GetAllItems());
+        adapter = new ListAdapterProduct(this, R.layout.rowlayout, dbProducts.GetAllItems());
+
+
         simpleList.setAdapter(adapter);
+        simpleList.setLongClickable(true);
+        simpleList.setOnItemLongClickListener(itemLongClickListener);
 
 
         bAdd.setOnClickListener(new View.OnClickListener() {
@@ -82,14 +83,39 @@ public class ListActivity extends AppCompatActivity {
                 et_price.setText("");
                 et_quant.setText("");
 
-                ArrayList<Product> products = dbProducts.GetAllItems();
-
-                adapter.clear();
-                adapter.addAll(products);
-                adapter.notifyDataSetChanged();
-
+                updateData();
             }
         });
+
+
+
+
     }
+
+
+     private void updateData(){
+        ArrayList<Product> products = dbProducts.GetAllItems();
+
+        adapter.clear();
+        adapter.addAll(products);
+        adapter.notifyDataSetChanged();
+
+    }
+
+    private final AdapterView.OnItemLongClickListener itemLongClickListener
+            = new AdapterView.OnItemLongClickListener() {
+        @Override
+        public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+            Product product = adapter.getItem(position);
+            dbProducts.RemoveProduct(product);
+            updateData();
+
+            return true;
+        }
+    };
+
+
+
+
 
 }
