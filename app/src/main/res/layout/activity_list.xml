@@ -14,15 +14,51 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="159dp" />
 
-    <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="24dp"
-        android:hint="Produkt"
-        />
+        android:layout_marginBottom="450dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_nazwa"
+            style="@style/Widget.AppCompat.EditText"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Nazwa"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/et_ilosc"
+            style="@style/Widget.AppCompat.EditText"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Ilość"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/et_cena"
+            style="@style/Widget.AppCompat.EditText"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Cena"
+            android:inputType="numberDecimal" />
+
+        <Button
+            android:id="@+id/bt_dodaj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.51"
+            android:text="Dodaj"
+            />
+
+    </LinearLayout>
 
 </RelativeLayout>

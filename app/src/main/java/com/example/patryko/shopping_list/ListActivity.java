@@ -19,34 +19,37 @@ import java.util.List;
 
 public class ListActivity extends AppCompatActivity {
 
-
-    private ListView listView;
-
-    //ArrayAdapter<String> namesAdapter;
-    //ListAdapterProduct listAdapterProduct;
-    //Product mleko;
-    //List<Product> productList;
-
     ListView simpleList;
     ArrayList<Product> productsList = new ArrayList<>();
+    Button bAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         simpleList = (ListView)findViewById(R.id.list_view);
+        bAdd = (Button)findViewById(R.id.bt_dodaj);
 
 
         productsList.add(new Product("Milk",1, 2.90));
         productsList.add(new Product("Banana",2, 3.20));
         productsList.add(new Product("Water",3, 1.00));
 
-        //listView=(ListView)findViewById(R.id.list_view);
-
 
         ListAdapterProduct adapter=new ListAdapterProduct(this,R.layout.rowlayout, productsList );
         simpleList.setAdapter(adapter);
 
+
+        bAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
     }
+
+
+
 
 }
