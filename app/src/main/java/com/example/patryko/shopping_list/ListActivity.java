@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,12 +48,17 @@ public class ListActivity extends AppCompatActivity {
         dbProducts = new DatabaseRepository(getBaseContext());
 
 
+        //dbProducts.RemoveProduct(dbProducts.GetAllItems());
+
+
+
+
 
         productsList.add(new Product("Milk", 1, 2.90, true));
 
 
 
-        final ListAdapterProduct adapter = new ListAdapterProduct(this, R.layout.rowlayout, productsList);
+        final ListAdapterProduct adapter = new ListAdapterProduct(this, R.layout.rowlayout, dbProducts.GetAllItems());
         simpleList.setAdapter(adapter);
 
 
@@ -67,17 +73,23 @@ public class ListActivity extends AppCompatActivity {
 
 
 
-              //  productsList.add(new Product(nazwa, ilosc, cena, true));
-                dbProducts.AddItem(new Product(nazwa, ilosc, cena, true));git
+             // productsList.add(new Product(nazwa, ilosc, cena, true));
+                dbProducts.AddItem(new Product(nazwa, ilosc, cena, true));
 
+             //   Log.d("Dodano", dbProducts.GetAllItems().toString());
 
-
-                adapter.notifyDataSetChanged();
                 et_name.setText("");
                 et_price.setText("");
                 et_quant.setText("");
 
+                ArrayList<Product> products = dbProducts.GetAllItems();
+
+                adapter.clear();
+                adapter.addAll(products);
+                adapter.notifyDataSetChanged();
+
             }
         });
     }
+
 }
