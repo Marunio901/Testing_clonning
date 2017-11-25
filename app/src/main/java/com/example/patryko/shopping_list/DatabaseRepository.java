@@ -60,6 +60,6 @@ public class DatabaseRepository {
         insertValues.put("Quantity", product.getQuantity());
         insertValues.put("Price", product.getPrice());
         insertValues.put("Selected", product.isChecked());
-        database.update("ProductItems", insertValues, "ProductName = ?", new String[]{productName});
+        database.update("Products", insertValues, "ProductName = ?", new String[]{productName});
     }
 }

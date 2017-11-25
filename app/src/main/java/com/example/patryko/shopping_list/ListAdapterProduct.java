@@ -31,7 +31,7 @@ public class ListAdapterProduct extends ArrayAdapter<Product> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         View v = convertView;
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -41,6 +41,7 @@ public class ListAdapterProduct extends ArrayAdapter<Product> {
         TextView textView3 = (TextView) v.findViewById(R.id.tv_price);
         Button editButton = (Button) v.findViewById(R.id.b_edytuj);
 
+
         textView.setText(productsList.get(position).getName());
         textView2.setText(String.valueOf(productsList.get(position).getQuantity()));
         textView3.setText(String.valueOf(productsList.get(position).getPrice()));
@@ -48,7 +49,15 @@ public class ListAdapterProduct extends ArrayAdapter<Product> {
             @Override
             public void onClick(View v) {
 
-                mycontext.startActivity(new Intent(mycontext, EditActivity.class));
+                Intent intent = new Intent(mycontext, EditActivity.class);
+
+
+
+                intent.putExtra("productName", productsList.get(position).getName());
+                intent.putExtra("productQuant", productsList.get(position).getQuantity());
+                intent.putExtra("productPrice", productsList.get(position).getPrice());
+
+                mycontext.startActivity(intent);
             }
         });
 

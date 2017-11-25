@@ -9,7 +9,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/et_cartitem"
+        android:layout_alignBottom="@+id/et_prod"
         android:layout_alignParentTop="true"
         android:gravity="center_vertical"
         android:paddingLeft="20dp"
@@ -17,7 +17,7 @@
         />
 
     <EditText
-        android:id="@+id/et_cartitem"
+        android:id="@+id/et_prod"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -29,7 +29,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/et_quantity"
+        android:layout_alignBottom="@+id/et_qu"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView3"
         android:gravity="center_vertical"
@@ -37,11 +37,11 @@
         android:text="Ilość" />
 
     <EditText
-        android:id="@+id/et_quantity"
+        android:id="@+id/et_qu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/et_cartitem"
+        android:layout_below="@+id/et_prod"
         android:ems="10"
         android:inputType="number" />
 
@@ -49,7 +49,7 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/et_price"
+        android:layout_alignBottom="@+id/et_pr"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView4"
         android:gravity="center_vertical"
@@ -57,31 +57,21 @@
         android:text="Cena" />
 
     <EditText
-        android:id="@+id/et_price"
+        android:id="@+id/et_pr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="numberDecimal"
-        android:layout_below="@+id/et_quantity"
+        android:layout_below="@+id/et_qu"
         android:layout_alignParentEnd="true" />
 
     <Button
-        android:id="@+id/button_ok"
+        android:id="@+id/button_oki"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/et_price"
-        android:layout_marginTop="128dp"
-        android:layout_toEndOf="@+id/textView3"
-        android:text="OK" />
-
-    <Button
-        android:id="@+id/button_cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button_ok"
-        android:layout_alignBottom="@+id/button_ok"
-        android:layout_alignStart="@+id/et_price"
-        android:layout_marginStart="45dp"
-        android:text="Cancel" />
+        android:layout_marginTop="120dp"
+        android:text="OK"
+        android:layout_below="@+id/et_pr"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

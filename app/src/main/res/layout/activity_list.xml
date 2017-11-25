@@ -56,14 +56,23 @@
             android:hint="Cena"
             android:inputType="numberDecimal" />
 
-        <Button
-            android:id="@+id/bt_dodaj"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_weight="0.51"
-            android:text="Dodaj" />
-
     </LinearLayout>
+
+    <Button
+        android:id="@+id/bt_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout"
+        android:text="MENU" />
+
+    <Button
+        android:id="@+id/bt_dodaj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/linearLayout"
+        android:layout_weight="0.51"
+        android:text="Dodaj" />
 
 </RelativeLayout>
