@@ -51,7 +51,7 @@ public class DatabaseRepository {
     }
 
     public void RemoveProduct(Product productToRemove){
-        database.delete("Product", "ProductName = ?", new String[]{productToRemove.getName()});
+        database.delete("Products", "ProductName = ?", new String[]{productToRemove.getName()});
     }
 
     public void UpdateProduct(Product product, String productName) {

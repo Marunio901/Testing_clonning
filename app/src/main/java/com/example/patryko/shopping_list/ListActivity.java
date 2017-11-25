@@ -16,10 +16,10 @@ import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity {
 
-    private ListView simpleList;
+    private ListView simpleList, lv;
     private Button bAdd, bDelete;
     private EditText et_name, et_quant, et_price;
-    private ListAdapterProduct adapter;
+    private ListAdapterProduct adapter, adapter2;
     private DatabaseRepository dbProducts;
 
     @Override
@@ -32,9 +32,9 @@ public class ListActivity extends AppCompatActivity {
         et_name = (EditText) findViewById(R.id.et_nazwa);
         et_quant = (EditText) findViewById(R.id.et_ilosc);
         et_price = (EditText) findViewById(R.id.et_cena);
-        bDelete = (Button) findViewById(R.id.b_usun);
-        dbProducts = new DatabaseRepository(getBaseContext());
+       // bDelete = (Button) findViewById(R.id.b_usun);
 
+        dbProducts = new DatabaseRepository(getBaseContext());
 
         adapter = new ListAdapterProduct(this, R.layout.rowlayout, dbProducts.GetAllItems());
 
@@ -42,27 +42,9 @@ public class ListActivity extends AppCompatActivity {
         simpleList.setLongClickable(true);
         simpleList.setOnItemLongClickListener(itemLongClickListener);
 
-
-        simpleList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> a, View v, final int position, long id) {
-                AlertDialog.Builder adb=new AlertDialog.Builder(ListActivity.this);
-                adb.setTitle("Delete?");
-                adb.setMessage("Are you sure you want to delete " + position);
-                final int positionToRemove = position;
-                adb.setNegativeButton("Cancel", null);
-                adb.setPositiveButton("Ok", new AlertDialog.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dbProducts.RemoveProduct(adapter.getItem(positionToRemove));
-                        adapter.notifyDataSetChanged();
-                    }});
-                adb.show();
-            }
-        });
-
         bAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
                 String nazwa = String.valueOf(et_name.getText());
                 int ilosc = Integer.parseInt(String.valueOf(et_quant.getText()));
@@ -88,13 +70,18 @@ public class ListActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
+
     private final AdapterView.OnItemLongClickListener itemLongClickListener
             = new AdapterView.OnItemLongClickListener() {
         @Override
         public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-            adapter.remove(adapter.getItem(position));
+            Product item = adapter.getItem(position);
+            dbProducts.RemoveProduct(item);
 
-            updateData();
+            ArrayList<Product> products = dbProducts.GetAllItems();
+            adapter.clear();
+            adapter.addAll(products);
+            adapter.notifyDataSetChanged();
 
             return true;
         }

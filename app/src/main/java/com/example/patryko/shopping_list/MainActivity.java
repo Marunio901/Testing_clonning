@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         Intent ekranList = new Intent(getApplicationContext(), ListActivity.class);
 
         startActivity(ekranList);
+
+
     }
 
 }

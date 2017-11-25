@@ -19,7 +19,8 @@
         <activity android:name=".SettingsActivity" />
         <activity android:name=".ListActivity" />
         <activity android:name=".Details" />
-        <activity android:name=".RowActivity"></activity>
+        <activity android:name=".RowActivity" />
+        <activity android:name=".EditActivity"></activity>
     </application>
 
 </manifest>
