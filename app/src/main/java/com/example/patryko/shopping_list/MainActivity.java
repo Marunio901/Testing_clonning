@@ -8,6 +8,10 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    //lalalalalunie bejbe lalalalalecznka
+
+
     private Button przyciskSettings, przyciskList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
