@@ -8,9 +8,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    //lal
-    ///a tutaj co wpowstanie?
+// patrykooo
 
 
     private Button przyciskSettings, przyciskList;
