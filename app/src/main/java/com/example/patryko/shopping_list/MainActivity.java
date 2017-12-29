@@ -9,7 +9,8 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
 
-    //lalalalalunie bejbe lalalalalecznka
+    //lal
+    ///a tutaj co wpowstanie?
 
 
     private Button przyciskSettings, przyciskList;
