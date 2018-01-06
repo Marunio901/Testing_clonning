@@ -52,13 +52,6 @@ public class DatabaseRepository {
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     Product product = postSnapshot.getValue(Product.class);
                  productList.add(product);
-                  //  productList.add(new Product(product.getName(), product.getQuantity(), product.getPrice(), false));
-
-
-                    // here you can access to name property like university.name
-//                    String productName = product.getName();
-//                int quantity = product.getQuantity();
-//                double price = product.getPrice();
                 }
             }
             @Override
@@ -80,10 +73,12 @@ public class DatabaseRepository {
 
         //myRef.push(String.valueOf(product.getName())).setValue("dsfasdf");
 
+        myRef.child(product.getName()).setValue(product);
 
-        myRef.child(product.getName()).push().setValue(product.getName());
-        myRef.child(product.getName()).push().setValue(product.getQuantity());
-        myRef.child(product.getName()).push().setValue(product.getPrice());
+//
+//        myRef.child(product.getName()).push().setValue(product.getName());
+//        myRef.child(product.getName()).push().setValue(product.getQuantity());
+//        myRef.child(product.getName()).push().setValue(product.getPrice());
 
 
     }

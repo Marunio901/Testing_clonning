@@ -55,7 +55,7 @@ public class ListActivity extends AppCompatActivity {
                     int ilosc = Integer.parseInt(String.valueOf(et_quant.getText()));
                     double cena = Double.parseDouble(String.valueOf(et_price.getText()));
 
-                    dbProducts.AddItem(new Product(nazwa, ilosc, cena, true));
+                    dbProducts.AddItem(new Product(nazwa, ilosc, cena, false));
                     et_name.setText("");
                     et_price.setText("");
                     et_quant.setText("");
