@@ -45,9 +45,6 @@ public class ListActivity extends AppCompatActivity {
         simpleList.setLongClickable(true);
         simpleList.setOnItemLongClickListener(itemLongClickListener);
 
-
-
-
         bAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,14 +56,12 @@ public class ListActivity extends AppCompatActivity {
                     double cena = Double.parseDouble(String.valueOf(et_price.getText()));
 
                     dbProducts.AddItem(new Product(nazwa, ilosc, cena, true));
-
                     et_name.setText("");
                     et_price.setText("");
                     et_quant.setText("");
+
                 }catch(Exception e){
-
                 };
-
 
                 updateData();
             }

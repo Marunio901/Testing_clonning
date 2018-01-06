@@ -50,9 +50,6 @@ public class ListAdapterProduct extends ArrayAdapter<Product> {
             public void onClick(View v) {
 
                 Intent intent = new Intent(mycontext, EditActivity.class);
-
-
-
                 intent.putExtra("productName", productsList.get(position).getName());
                 intent.putExtra("productQuant", productsList.get(position).getQuantity());
                 intent.putExtra("productPrice", productsList.get(position).getPrice());

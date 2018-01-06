@@ -24,10 +24,6 @@ public class EditActivity extends AppCompatActivity {
         quant = (EditText)findViewById(R.id.et_qu);
         price = (EditText)findViewById(R.id.et_pr);
 
-
-
-
-
         final String productName = getIntent().getStringExtra("productName");
         final int productQuant = getIntent().getIntExtra("productQuant", 0);
         final double productPrice = getIntent().getDoubleExtra("productPrice", 0);

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "194650744437",
+    "firebase_url": "https://testingclonning.firebaseio.com",
+    "project_id": "testingclonning",
+    "storage_bucket": "testingclonning.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:194650744437:android:81ae80783d1a0182",
+        "android_client_info": {
+          "package_name": "com.example.patryko.shopping_list"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "194650744437-83etufpp80mf4pgb32obvtfjdlh5bhnk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.patryko.shopping_list",
+            "certificate_hash": "1a79cdd1faa46adb6ef8d2caa4bc8b3ec8d1df5d"
+          }
+        },
+        {
+          "client_id": "194650744437-o94aquvkocnil7nkd78j301k7g6670tc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNnogs8nKKGX3yS-Smy1_UAcxZnTz6x5U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "194650744437-o94aquvkocnil7nkd78j301k7g6670tc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
