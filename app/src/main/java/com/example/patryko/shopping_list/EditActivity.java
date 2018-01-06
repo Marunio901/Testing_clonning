@@ -28,8 +28,6 @@ public class EditActivity extends AppCompatActivity {
         final int productQuant = getIntent().getIntExtra("productQuant", 0);
         final double productPrice = getIntent().getDoubleExtra("productPrice", 0);
 
-        dbrepo = new DatabaseRepository(this);
-
         name.setText(productName);
         quant.setText(String.valueOf(productQuant));
         price.setText(String.valueOf(productPrice));
@@ -47,8 +45,6 @@ public class EditActivity extends AppCompatActivity {
 
                 Intent ekranList = new Intent(getApplicationContext(), ListActivity.class);
                 startActivity(ekranList);
-
-
             }
         });
 

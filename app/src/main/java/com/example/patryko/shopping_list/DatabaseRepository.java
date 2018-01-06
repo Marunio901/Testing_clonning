@@ -22,24 +22,8 @@ import java.util.List;
 
 public class DatabaseRepository {
 
-    private final SQLiteDatabase database;
-
     FirebaseDatabase database2 = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database2.getInstance().getReference();
-
-
-
-    public DatabaseRepository(Context context){
-        File mDatabaseFile = context.getDatabasePath("patrykDB.db").getAbsoluteFile();
-        database = SQLiteDatabase.openOrCreateDatabase(mDatabaseFile, null);
-        database.execSQL("CREATE TABLE IF NOT EXISTS Products(ProductName VARCHAR PRIMARY KEY, Quantity INTEGER, Price NUMERIC, Selected INTEGER);");
-    }
-
-
-
-
-
-
 
     public ArrayList<Product> GetAllItems(){
 
@@ -64,48 +48,15 @@ public class DatabaseRepository {
     }
 
     public void AddItem(Product product){
-        ContentValues insertValues = new ContentValues();
-        insertValues.put("ProductName", product.getName());
-        insertValues.put("Quantity", product.getQuantity());
-        insertValues.put("Price", product.getPrice());
-        insertValues.put("Selected", product.isChecked());
-        database.insert("Products", null, insertValues);
-
-        //myRef.push(String.valueOf(product.getName())).setValue("dsfasdf");
-
         myRef.child(product.getName()).setValue(product);
-
-//
-//        myRef.child(product.getName()).push().setValue(product.getName());
-//        myRef.child(product.getName()).push().setValue(product.getQuantity());
-//        myRef.child(product.getName()).push().setValue(product.getPrice());
-
-
     }
 
     public void RemoveProduct(Product productToRemove){
-        database.delete("Products", "ProductName = ?", new String[]{productToRemove.getName()});
         myRef.child(productToRemove.getName()).removeValue();
     }
 
     public void UpdateProduct(Product product, String productName) {
-        ContentValues insertValues = new ContentValues();
-        insertValues.put("ProductName", product.getName());
-        insertValues.put("Quantity", product.getQuantity());
-        insertValues.put("Price", product.getPrice());
-        insertValues.put("Selected", product.isChecked());
-        database.update("Products", insertValues, "ProductName = ?", new String[]{productName});
-
-
         myRef.child(productName).removeValue();
-
-            myRef.child(product.getName()).setValue(product);
-
-
-
-
-
-
-
+        myRef.child(product.getName()).setValue(product);
     }
 }

@@ -17,10 +17,10 @@ import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity {
 
-    private ListView simpleList, lv;
+    private ListView simpleList;
     private Button bAdd, bmenu;
     private EditText et_name, et_quant, et_price;
-    private ListAdapterProduct adapter, adapter2;
+    private ListAdapterProduct adapter;
     private DatabaseRepository dbProducts;
 
     @Override
@@ -35,9 +35,8 @@ public class ListActivity extends AppCompatActivity {
         et_name = (EditText) findViewById(R.id.et_nazwa);
         et_quant = (EditText) findViewById(R.id.et_ilosc);
         et_price = (EditText) findViewById(R.id.et_cena);
-       // bDelete = (Button) findViewById(R.id.b_usun);
 
-        dbProducts = new DatabaseRepository(getBaseContext());
+        dbProducts = new DatabaseRepository();
 
         adapter = new ListAdapterProduct(this, R.layout.rowlayout, dbProducts.GetAllItems());
 
