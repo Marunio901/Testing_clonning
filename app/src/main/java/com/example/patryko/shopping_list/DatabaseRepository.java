@@ -95,5 +95,17 @@ public class DatabaseRepository {
         insertValues.put("Price", product.getPrice());
         insertValues.put("Selected", product.isChecked());
         database.update("Products", insertValues, "ProductName = ?", new String[]{productName});
+
+
+        myRef.child(productName).removeValue();
+
+            myRef.child(product.getName()).setValue(product);
+
+
+
+
+
+
+
     }
 }
